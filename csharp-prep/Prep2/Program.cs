@@ -13,23 +13,37 @@ class Program
         int grade = int.Parse(Console.ReadLine());
         if (grade >= 90)
         {
-            Console.Write("A");
+            Console.WriteLine("A");
+            Console.Write($"Congratulations on passing the course with a grade of {grade}");
         }
         else if (grade >= 80)
         {
-            Console.Write("B");
+            Console.WriteLine("B");
+            Console.Write($"Congratulations on passing the course with a grade of {grade}");
         }
         else if (grade >= 70)
         {
-            Console.Write("C");
+            Console.WriteLine("C");
+            Console.Write($"Congratulations on passing the course with a grade of {grade}");
         }
         else if (grade >= 60)
         {
-            Console.Write("D");
+            Console.WriteLine("D");
+            Console.Write($"You tried but there is room for improvement");
         }
         else
         {
-            Console.Write("F");
+            Console.WriteLine("F");
+            Console.Write($"You can do better next time");
         }
+
+        // if (grade >= 70)
+        // {
+        //     Console.Write($"Congratulations on passing the course with a grade of {grade}");
+        // }
+        // else
+        // {
+
+        // }
     }
 }

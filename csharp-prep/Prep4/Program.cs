@@ -22,7 +22,7 @@ class Program
         int num;
         do
         {
-            Console.Write("Enter number:");
+            Console.Write("Enter number: ");
 
             num = int.Parse(Console.ReadLine());
             sum.Add(num);

@@ -43,15 +43,32 @@ public class Journal
 
     public void LoadJournal(string filename)
     {
-        Entries.Clear();
-        using (StreamReader reader = new StreamReader(filename))
+        if (File.Exists(filename)) // Check if the file exists
         {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            Entries.Clear(); // Clear any existing entries
+            using (StreamReader reader = new StreamReader(filename))
             {
-                var parts = line.Split('|');
-                Entries.Add(new Entry(parts[0], parts[1], parts[2]));
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    // Split by the delimiter, assuming it's "|" for the date, prompt, and response
+                    var parts = line.Split('|');
+                    if (parts.Length == 3) // Ensure the line has exactly 3 parts (date, prompt, response)
+                    {
+                        Entries.Add(new Entry(parts[0], parts[1], parts[2]));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid entry format in the file.");
+                    }
+                }
             }
+            Console.WriteLine("Journal loaded successfully.");
+        }
+        else
+        {
+            Console.WriteLine("File not found.");
         }
     }
 }
+

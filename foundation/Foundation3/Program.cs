@@ -1,9 +1,22 @@
 using System;
 
-class Program
+// Main program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation3 World!");
+        // Create activities
+        var activities = new List<Activity>
+        {
+            new Running { date = "03 Nov 2022", minutes = 30, distance = 3.0 },
+            new Cycling { date = "03 Nov 2022", minutes = 40, speed = 15.0 },
+            new Swimming { date = "03 Nov 2022", minutes = 25, laps = 20 }
+        };
+
+        // Display summaries
+        foreach (var activity in activities)
+        {
+            Console.WriteLine(activity.GetSummary());
+        }
     }
 }
